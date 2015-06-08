@@ -7,7 +7,7 @@ import pylab
 import util
 
 def load(file):
-    return [ int(x) for x in file.read().splitlines() ]
+    return [ float(x) for x in file.read().splitlines() ]
 
 def plot(data):
     plt.plot(data)

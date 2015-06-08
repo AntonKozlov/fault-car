@@ -18,11 +18,11 @@ def load(file):
                 continue
             m = re.match(r'(\d+) <repeats (\d+) times>', si)
             if m:
-                val = int(m.group(1))
+                val = float(m.group(1))
                 for i in xrange(int(m.group(2))):
                     yield val
             else:
-                yield int(si)
+                yield float(si)
 
 if __name__ == '__main__':
     for i in load(util.input_file()):
