@@ -11,3 +11,9 @@ for i in car_logs_*/*; do ./convert.py $i > txt/$i.txt; done
 ```
 ./plot.py txt/car_logs_road/1.txt
 ```
+
+## Fault detection
+First, obtain the log by ./convert.py as described above. Then try:
+```
+./fault_detect.py new_log.txt
+```
