@@ -13,7 +13,8 @@ for i in car_logs_*/*; do ./convert.py $i > txt/$i.txt; done
 ```
 
 ## Fault detection
-First, obtain the log by ./convert.py as described above. Then try:
+First, obtain log.txt the log by ./convert.py as described above.
+Then try:
 ```
-./fault_detect.py new_log.txt
+./fault_detect.py log.txt
 ```
