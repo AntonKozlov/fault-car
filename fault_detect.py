@@ -5,10 +5,10 @@ from util import load_data, write_data
 
 def moving_average(data, window_size):
 	out_data = []
-	tmp = sum(data[0:window_size-1])
-	for i in range(window_size, len(data)):
-		tmp += data[i] - data[i - window_size + 1]
-		out_data.append(tmp / window_size)
+	window = [0] * window_size
+	for x in data:
+		window = window[1:] + [x]
+		out_data.append(sum(window) / window_size)
 	return out_data
 
 # http://people.irisa.fr/Michele.Basseville/kniga/kniga.pdf
