@@ -38,9 +38,18 @@ def average_diff(data, func, window_size):
 	double = func(data, window_size * 2)
 	return map(lambda x: x[0] - x[1], zip(normal, double))
 
+def calc_threshold(func, window_size):
+	data_in = load_data("txt/car_logs_road/5.txt")
+	filtered = average_diff(data_in, func, window_size)
+	interval = max(window_size, len(filtered)/10)
+	return max(map(abs, filtered[:interval])) * 1.25
+
+
 def main():
-	threshold = 750
 	window_size = 100
+	threshold = calc_threshold(exp_moving_average, window_size)
+
+	print threshold
 
 	filename = sys.argv[1]
 	data_in = load_data(filename)
