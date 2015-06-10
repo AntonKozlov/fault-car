@@ -11,6 +11,18 @@ def moving_average(data, window_size):
 		out_data.append(sum(window) / window_size)
 	return out_data
 
+def exp_moving_average(data, window_size):
+	out_data = []
+	a = 2.0 / (window_size + 1)
+	ema = data[0];
+
+	for x in data:
+		# Formula: ema = a*x + (1 - a)*ema
+		ema += a * (x - ema)
+		out_data.append(ema)
+
+	return out_data
+
 # http://people.irisa.fr/Michele.Basseville/kniga/kniga.pdf
 # Example 2.3.4
 def GLR_detector(data):
